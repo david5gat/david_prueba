@@ -1,0 +1,26 @@
+<div class="container my-4">
+  <h4 class="mb-3">Historial de búsquedas</h4>
+
+  <table mdbTable class="table table-hover table-responsive">
+    <thead class="table-dark">
+      <tr>
+        <th>Fecha</th>
+        <th>Texto</th>
+        <th>Palabras</th>
+        <th>GIF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of historial">
+        <td>{{ item.fecha | date: 'short' }}</td>
+        <td>{{ item.texto }}</td>
+        <td>{{ item.palabras.join(', ') }}</td>
+        <td>
+          <a [href]="item.url" target="_blank">
+            <img [src]="item.url" alt="GIF" class="img-fluid" style="max-height: 100px;" />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
